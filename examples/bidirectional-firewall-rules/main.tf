@@ -176,7 +176,7 @@ locals {
 }
 
 module "test-vpc-module" {
-  source       = "../../"
+  source       = "terraform-google-modules/network/google"
   project_id   = var.project_id
   network_name = var.network_name
 
@@ -198,14 +198,14 @@ module "test-vpc-module" {
 
 
 module "test-firewall-submodule" {
-  source       = "../../modules/firewall-rules"
+  source       = "terraform-google-modules/network/google//modules/firewall-rules"
   project_id   = var.project_id
   network_name = module.test-vpc-module.network_name
   rules        = local.custom_rules
 }
 
 module "test-firewall-submodule-ing-egr" {
-  source        = "../../modules/firewall-rules"
+  source        = "terraform-google-modules/network/google//modules/firewall-rules"
   project_id    = var.project_id
   network_name  = module.test-vpc-module.network_name
   ingress_rules = local.custom_rules_ingress

@@ -22,7 +22,7 @@ locals {
 }
 
 module "vpc-secondary-ranges" {
-  source       = "../../"
+  source       = "terraform-google-modules/network/google"
   project_id   = var.project_id
   network_name = var.network_name
 
