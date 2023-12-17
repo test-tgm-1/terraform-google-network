@@ -50,7 +50,7 @@ locals {
 }
 
 module "test-vpc-module-01" {
-  source       = "../../"
+  source       = "terraform-google-modules/network/google"
   project_id   = var.project_id
   network_name = var.network_01_name
 
@@ -102,7 +102,7 @@ module "test-vpc-module-01" {
 }
 
 module "test-vpc-module-02" {
-  source       = "../../"
+  source       = "terraform-google-modules/network/google"
   project_id   = var.project_id
   network_name = var.network_02_name
 

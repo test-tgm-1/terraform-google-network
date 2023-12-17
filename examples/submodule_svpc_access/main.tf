@@ -22,7 +22,7 @@ locals {
 }
 
 module "net-vpc-shared" {
-  source          = "../.."
+  source          = "terraform-google-modules/network/google"
   project_id      = var.host_project_id
   network_name    = var.network_name
   shared_vpc_host = true
@@ -42,7 +42,7 @@ module "net-vpc-shared" {
 }
 
 module "net-svpc-access" {
-  source              = "../../modules/fabric-net-svpc-access"
+  source              = "terraform-google-modules/network/google//modules/fabric-net-svpc-access"
   host_project_id     = module.net-vpc-shared.project_id
   service_project_ids = [var.service_project_id]
   host_subnets        = ["data"]
